@@ -1,0 +1,73 @@
+box: golang
+
+dev:
+  steps:
+    - setup-go-workspace:
+        package-dir: github.com/samiaoussena/CI_OddJobs
+
+    - script:
+        name: go get
+        code: |
+          cd $WERCKER_SOURCE_DIR
+          go version
+          go get -u github.com/Masterminds/glide
+          export PATH=$WERCKER_SOURCE_DIR/bin:$PATH
+          glide install
+
+    - internal/watch:
+        code: go run main.go
+        reload: true
+
+build:
+  steps:
+    - setup-go-workspace:
+        package-dir: github.com/samiaoussena/CI_OddJobs
+
+    - script:
+        name: go get
+        code: |
+          cd $WERCKER_SOURCE_DIR
+          go version
+          go get -u github.com/Masterminds/glide
+          export PATH=$WERCKER_SOURCE_DIR/bin:$PATH
+          glide install
+
+    # Build the project
+    - script:
+        name: go build
+        code: |
+          go build
+
+    # Test the project
+    - script:
+        name: go test
+        code: |
+          go test -v $(glide novendor)
+
+    - script:
+        name: copy files to wercker output
+        code: |
+          cp -R ./ ${WERCKER_OUTPUT_DIR}
+
+
+deploy:
+ steps:
+   - internal/docker-push:
+       username: $USERNAME
+       password: $PASSWORD
+       cmd: /pipeline/source/CI_OddJobs
+       port: "3001"
+       tag: latest
+       repository: samiaoussena/CI_OddJobs
+       registry: https://registry.hub.docker.com
+
+cloud-deploy:
+  steps:
+   - cng/cf-deploy:
+       api: $API
+       user: $USER
+       password: $PASSWORD
+       org: $ORG
+       space: $SPACE
+       appname: CI_OddJobs
+       docker_image: samiaoussena/CI_OddJobs

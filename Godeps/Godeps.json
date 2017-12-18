@@ -1,0 +1,21 @@
+{
+	"ImportPath": "github.com/samiaoussena/CI_OddJobs",
+	"GoVersion": "go1.9",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/codegangsta/negroni",
+			"Comment": "v0.3.0-2-gcc68f18",
+			"Rev": "cc68f18cd7e1157c71811df1396496a9db0e997d"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Comment": "v1.4.0-11-g8c683ee",
+			"Rev": "8c683ee571b6ee7ffc9f1cafd13103c422e71cbf"
+		},
+		{
+			"ImportPath": "github.com/unrolled/render",
+			"Rev": "65450fb6b2d3595beca39f969c411db8f8d5c806"
+		}
+	]
+}

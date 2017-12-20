@@ -55,7 +55,7 @@ deploy:
    - internal/docker-push:
        username: $USERNAME
        password: $PASSWORD
-       cmd: /pipeline/source/CI_OddJobs
+       cmd: /pipeline/source/oddjobs
        port: "3001"
        tag: latest
        repository: samiaoussena/oddjobs

@@ -58,7 +58,7 @@ deploy:
        cmd: /pipeline/source/CI_OddJobs
        port: "3001"
        tag: latest
-       repository: samiaoussena/CI_OddJobs
+       repository: samiaoussena/oddjobs
        registry: https://registry.hub.docker.com
 
 cloud-deploy:
@@ -69,5 +69,5 @@ cloud-deploy:
        password: $PASSWORD
        org: $ORG
        space: $SPACE
-       appname: CI_OddJobs
-       docker_image: samiaoussena/CI_OddJobs
+       appname: oddjobs
+       docker_image: samiaoussena/oddjobs

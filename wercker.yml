@@ -59,7 +59,7 @@ deploy:
        port: "8080"
        tag: latest
        repository: samiaoussena/oddjobs
-       registry: https://registry.hub.docker.com
+       registry: https://registry.hub.docker.com/v2
 
 cloud-deploy:
   steps:

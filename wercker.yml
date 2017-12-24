@@ -58,7 +58,7 @@ deploy:
        cmd: /pipeline/source/oddjobs
        port: "3001"
        tag: latest
-       repository: samiadocker/oddjobs
+       repository: samiaoussena/oddjobs
        registry: https://registry.hub.docker.com
 
 cloud-deploy:

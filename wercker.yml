@@ -53,8 +53,8 @@ build:
 deploy:
  steps:
    - internal/docker-push:
-       username: $USERNAME
-       password: $PASSWORD
+       username: $DOUSERNAME
+       password: $DOPASSWORD
        cmd: /pipeline/source/oddjobs
        port: "3001"
        tag: latest
